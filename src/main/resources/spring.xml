@@ -33,12 +33,19 @@
         <property name="dataSource" ref="dataSource"/>
         <!--起别名-->
         <property name="typeAliasesPackage" value="com.hxd.domain"/>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:mapper/*.xml</value>
+            </list>
+        </property>
     </bean>
 
     <!--5.配置Mapper代理对象扫描器-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!--基础扫描包-->
         <property name="basePackage" value="com.hxd.dao"/>
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
     </bean>
 
     <!--6.创建事务管理器-->
