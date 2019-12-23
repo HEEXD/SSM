@@ -21,7 +21,11 @@ public class UserController {
         List<User> list = userService.findAll();
         model.addAttribute("list",list);
         return "userList";
-
-
     }
+
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
+    }
+
 }
